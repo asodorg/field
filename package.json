@@ -1,17 +1,17 @@
 {
-  "name": "ts-package-template",
+  "name": "@asod/field",
   "description": "",
   "version": "0.1.0-canary.0",
   "license": "MIT",
   "author": "Oleg Putseiko <oleg.putseiko@gmail.com> (https://github.com/oleg-putseiko)",
   "keywords": [],
-  "homepage": "https://github.com/oleg-putseiko/ts-package-template",
+  "homepage": "https://github.com/asodorg/field",
   "repository": {
     "type": "git",
-    "url": "https://github.com/oleg-putseiko/ts-package-template"
+    "url": "https://github.com/asodorg/field"
   },
   "bugs": {
-    "url": "https://github.com/oleg-putseiko/ts-package-template/issues"
+    "url": "https://github.com/asodorg/field/issues"
   },
   "main": "dist/index.js",
   "files": [

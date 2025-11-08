@@ -12,6 +12,31 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@asod/field@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "@asod/field@workspace:."
+  dependencies:
+    "@asod/compare": "npm:^0.1.1-canary.1"
+    "@commitlint/cli": "npm:^18.2.0"
+    "@commitlint/config-conventional": "npm:^18.1.0"
+    "@swc/cli": "npm:^0.5.2"
+    "@swc/core": "npm:^1.10.1"
+    "@types/jest": "npm:^30.0.0"
+    "@types/node": "npm:^22.10.1"
+    "@typescript-eslint/eslint-plugin": "npm:^8.28.0"
+    "@typescript-eslint/parser": "npm:^8.28.0"
+    eslint: "npm:^9.16.0"
+    eslint-config-prettier: "npm:^10.1.1"
+    husky: "npm:^8.0.3"
+    jest: "npm:^30.2.0"
+    lint-staged: "npm:^15.0.2"
+    prettier: "npm:^3.0.3"
+    ts-jest: "npm:^29.4.5"
+    ts-node: "npm:^10.9.2"
+    typescript: "npm:^5.7.2"
+  languageName: unknown
+  linkType: soft
+
 "@babel/code-frame@npm:^7.0.0, @babel/code-frame@npm:^7.27.1":
   version: 7.27.1
   resolution: "@babel/code-frame@npm:7.27.1"
@@ -6494,31 +6519,6 @@ __metadata:
   checksum: 10c0/5f29938489f96982a25ba650b64218e83a3357d76f7bede80195c65ab44ad279c8357264639b7abdd5d7e75fc269a83daa0e9c62fd8637a3def67254ecc9ddc2
   languageName: node
   linkType: hard
-
-"ts-package-template@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "ts-package-template@workspace:."
-  dependencies:
-    "@asod/compare": "npm:^0.1.1-canary.1"
-    "@commitlint/cli": "npm:^18.2.0"
-    "@commitlint/config-conventional": "npm:^18.1.0"
-    "@swc/cli": "npm:^0.5.2"
-    "@swc/core": "npm:^1.10.1"
-    "@types/jest": "npm:^30.0.0"
-    "@types/node": "npm:^22.10.1"
-    "@typescript-eslint/eslint-plugin": "npm:^8.28.0"
-    "@typescript-eslint/parser": "npm:^8.28.0"
-    eslint: "npm:^9.16.0"
-    eslint-config-prettier: "npm:^10.1.1"
-    husky: "npm:^8.0.3"
-    jest: "npm:^30.2.0"
-    lint-staged: "npm:^15.0.2"
-    prettier: "npm:^3.0.3"
-    ts-jest: "npm:^29.4.5"
-    ts-node: "npm:^10.9.2"
-    typescript: "npm:^5.7.2"
-  languageName: unknown
-  linkType: soft
 
 "tslib@npm:^2.4.0":
   version: 2.8.1
