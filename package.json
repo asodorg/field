@@ -56,6 +56,7 @@
     "yarn": "4.10.3"
   },
   "dependencies": {
-    "@asod/compare": "^0.1.1-canary.1"
+    "@asod/compare": "^0.1.1-canary.1",
+    "@asod/core": "^0.1.0-canary.0"
   }
 }

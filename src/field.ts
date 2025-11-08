@@ -1,30 +1,26 @@
 import { compare } from '@asod/compare';
 
-import {
-  type IField,
-  type IOperation,
-  type IOperationValue,
-} from './declarations/index';
+import { type Field } from './declarations/index';
 import { isComparable } from './utils/guards';
 
-type FieldOperationConfig<TValue extends Primitive | IOperationValue> = {
-  func: IOperation<TValue>;
+type FieldOperationConfig<TValue extends Field.OperationValue> = {
+  func: Field.IOperation<TValue>;
   neutralValue: TValue;
 };
 
-type FieldOperationsConfig<TValue extends Primitive | IOperationValue> = {
+type FieldOperationsConfig<TValue extends Field.OperationValue> = {
   add: FieldOperationConfig<TValue>;
   sub: FieldOperationConfig<TValue>;
   mul: FieldOperationConfig<TValue>;
   div: FieldOperationConfig<TValue>;
 };
 
-type FieldConfig<TValue extends Primitive | IOperationValue> = {
+type FieldConfig<TValue extends Field.OperationValue> = {
   operations: FieldOperationsConfig<TValue>;
 };
 
-class Field<TValue extends Primitive | IOperationValue>
-  implements IField<TValue>
+class Field<TValue extends Field.OperationValue>
+  implements Field.IField<TValue>
 {
   private readonly _operations: Readonly<FieldOperationsConfig<TValue>>;
 

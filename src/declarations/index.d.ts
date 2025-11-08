@@ -1,46 +1,51 @@
 /// <reference path="global.d.ts" />
 
+import ASOD from '@asod/core';
 import { type Comparator } from '@asod/compare';
 
 declare const ABSTRACT_OPERATION_ID: unique symbol;
 
 type AbstractOperationId = typeof ABSTRACT_OPERATION_ID;
 
-declare namespace ASOD {
-  /* Common */
+declare module '@asod/core' {
+  namespace Field {
+    /* Common */
 
-  interface IComparable {
-    comparator?: Comparator;
-  }
+    interface IComparable {
+      comparator?: Comparator;
+    }
 
-  /* Operation */
+    /* Operation */
 
-  interface IOperationValue extends IComparable {}
+    interface IOperationValue extends IComparable {}
 
-  interface IOperation<TValue extends Primitive | IOperationValue> {
-    (a: TValue, b: TValue): TValue;
-  }
+    type OperationValue = Primitive | IOperationValue;
 
-  /* Group */
+    interface IOperation<TValue extends OperationValue> {
+      (a: TValue, b: TValue): TValue;
+    }
 
-  interface IGroup<TValue extends Primitive | IOperationValue> {
-    [ABSTRACT_OPERATION_ID]: IOperation<TValue>;
-  }
+    /* Group */
 
-  /* Ring */
+    interface IGroup<TValue extends OperationValue> {
+      [ABSTRACT_OPERATION_ID]: IOperation<TValue>;
+    }
 
-  // prettier-ignore
-  interface IRing<TValue extends Primitive | IOperationValue> extends Omit<IGroup<TValue>, AbstractOperationId> {
-    add: IOperation<TValue>;
-    mul: IOperation<TValue>;
-  }
+    /* Ring */
 
-  /* Field */
+    // prettier-ignore
+    interface IRing<TValue extends OperationValue> extends Omit<IGroup<TValue>, AbstractOperationId> {
+      add: IOperation<TValue>;
+      mul: IOperation<TValue>;
+    }
 
-  // prettier-ignore
-  interface IField<TValue extends Primitive | IOperationValue> extends Omit<IRing<TValue>, AbstractOperationId> {
-    sub: IOperation<TValue>;
-    div: IOperation<TValue>;
+    /* Field */
+
+    // prettier-ignore
+    interface IField<TValue extends OperationValue> extends Omit<IRing<TValue>, AbstractOperationId> {
+      sub: IOperation<TValue>;
+      div: IOperation<TValue>;
+    }
   }
 }
 
