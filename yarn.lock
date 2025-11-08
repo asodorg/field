@@ -5,6 +5,13 @@ __metadata:
   version: 8
   cacheKey: 10c0
 
+"@asod/compare@npm:^0.1.1-canary.1":
+  version: 0.1.1-canary.1
+  resolution: "@asod/compare@npm:0.1.1-canary.1"
+  checksum: 10c0/0ca3d172809c0d3d1d2076b9d1dec3a7d8d1d9bd7c89ec9c4084d7871b9ead5a155b2230c8206546a82749a66f5f61c7c4b1597151425d9cc3ae741f0a170207
+  languageName: node
+  linkType: hard
+
 "@babel/code-frame@npm:^7.0.0, @babel/code-frame@npm:^7.27.1":
   version: 7.27.1
   resolution: "@babel/code-frame@npm:7.27.1"
@@ -6492,6 +6499,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "ts-package-template@workspace:."
   dependencies:
+    "@asod/compare": "npm:^0.1.1-canary.1"
     "@commitlint/cli": "npm:^18.2.0"
     "@commitlint/config-conventional": "npm:^18.1.0"
     "@swc/cli": "npm:^0.5.2"
