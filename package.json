@@ -21,7 +21,7 @@
   "scripts": {
     "build": "yarn build:js && yarn build:ts",
     "build:js": "swc src -d dist --strip-leading-paths --ignore \"node_modules,**/*.test.ts,**/*.d.ts\"",
-    "build:ts": "tsc && find src -name \"*.d.ts\" -exec cp {} dist/ \\;",
+    "build:ts": "tsc && mkdir -p dist && find src -name \"*.d.ts\" -exec cp {} dist/ \\;",
     "lint": "eslint ./src/**/*.ts -c ./eslint.config.mjs",
     "lint:fix": "yarn lint --fix && yarn format:fix",
     "lint:strict": "yarn lint --max-warnings=0 && yarn format",
@@ -31,6 +31,10 @@
     "test": "jest",
     "prepare": "husky install | chmod +x ./.husky/*",
     "version:bump": "npm version -m \"build(package): bump the package version to %s\""
+  },
+  "dependencies": {
+    "@asod/compare": "^0.1.1-canary.5",
+    "@asod/core": "^0.1.0-canary.1"
   },
   "devDependencies": {
     "@commitlint/cli": "^18.2.0",
@@ -54,9 +58,5 @@
   "volta": {
     "node": "20.19.5",
     "yarn": "4.10.3"
-  },
-  "dependencies": {
-    "@asod/compare": "^0.1.1-canary.1",
-    "@asod/core": "^0.1.0-canary.0"
   }
 }
