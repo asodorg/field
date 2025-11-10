@@ -41,8 +41,8 @@ class Ring<TValue extends ASOD.Operation.OperationValue> implements ASOD.Ring.IR
   }
 
   protected _compare(a: TValue, b: TValue) {
-    if (isComparable(a)) return compare(a, b, a.comparator);
-    if (isComparable(b)) return compare(a, b, b.comparator);
+    if (isComparable(a)) return compare(a, b, (a, b) => a.compare(b));
+    if (isComparable(b)) return compare(a, b, (a, b) => b.compare(a));
     return compare(a, b);
   }
 }

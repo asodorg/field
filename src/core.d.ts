@@ -2,8 +2,8 @@ import ASOD from '@asod/core';
 
 declare module '@asod/core' {
   namespace Operation {
-    interface IComparable {
-      comparator?: ASOD.Comparator;
+    interface IComparable<TValue = unknown> {
+      compare?(value: TValue): number;
     }
 
     interface IOperationObjectValue extends IComparable {}
@@ -14,8 +14,7 @@ declare module '@asod/core' {
       (...values: [TValue, ...TValue[]]): TValue;
     }
 
-    interface IBinaryOperation<TValue extends OperationValue>
-      extends IOperation<TValue> {
+    interface IBinaryOperation<TValue extends OperationValue> extends IOperation<TValue> {
       (a: TValue, b: TValue): TValue;
     }
   }
