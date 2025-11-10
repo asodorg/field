@@ -3,7 +3,7 @@ import { Ring } from './ring';
 
 type FieldOperationConfig<TValue extends ASOD.Operation.OperationValue> = {
   func: ASOD.Operation.IBinaryOperation<TValue>;
-  neutralValue: TValue;
+  neutralValue?: TValue;
 };
 
 type FieldOperationsConfig<TValue extends ASOD.Operation.OperationValue> = {
@@ -29,14 +29,14 @@ class Field<TValue extends ASOD.Operation.OperationValue> extends Ring<TValue> i
   sub(a: TValue, b: TValue): TValue {
     const { func, neutralValue } = this._operations.sub;
 
-    if (!this._compare(b, neutralValue)) return a;
+    if (neutralValue !== undefined && this._areEqual(b, neutralValue)) return a;
     return func(a, b);
   }
 
   div(a: TValue, b: TValue): TValue {
     const { func, neutralValue } = this._operations.div;
 
-    if (!this._compare(b, neutralValue)) return a;
+    if (neutralValue !== undefined && this._areEqual(b, neutralValue)) return a;
     return func(a, b);
   }
 }

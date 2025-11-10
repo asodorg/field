@@ -5,7 +5,7 @@ import { isComparable } from './utils/guards';
 
 type RingOperationConfig<TValue extends ASOD.Operation.OperationValue> = {
   func: ASOD.Operation.IBinaryOperation<TValue>;
-  neutralValue: TValue;
+  neutralValue?: TValue;
 };
 
 type RingOperationsConfig<TValue extends ASOD.Operation.OperationValue> = {
@@ -27,20 +27,30 @@ class Ring<TValue extends ASOD.Operation.OperationValue> implements ASOD.Ring.IR
   add(a: TValue, b: TValue): TValue {
     const { func, neutralValue } = this._operations.add;
 
-    if (!this._compare(a, neutralValue)) return b;
-    if (!this._compare(b, neutralValue)) return a;
+    if (neutralValue !== undefined) {
+      if (this._areEqual(a, neutralValue)) return b;
+      if (this._areEqual(b, neutralValue)) return a;
+    }
+
     return func(a, b);
   }
 
   mul(a: TValue, b: TValue): TValue {
     const { func, neutralValue } = this._operations.mul;
 
-    if (!this._compare(a, neutralValue)) return b;
-    if (!this._compare(b, neutralValue)) return a;
+    if (neutralValue !== undefined) {
+      if (this._areEqual(a, neutralValue)) return b;
+      if (this._areEqual(b, neutralValue)) return a;
+    }
+
     return func(a, b);
   }
 
-  protected _compare(a: TValue, b: TValue) {
+  protected _areEqual(a: TValue, b: TValue): boolean {
+    return !this._compare(a, b);
+  }
+
+  protected _compare(a: TValue, b: TValue): number {
     if (isComparable(a)) return compare(a, b, (a, b) => a.compare(b));
     if (isComparable(b)) return compare(a, b, (a, b) => b.compare(a));
     return compare(a, b);
