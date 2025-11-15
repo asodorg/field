@@ -34,7 +34,7 @@
   },
   "dependencies": {
     "@asod/compare": "^0.1.1-canary.5",
-    "@asod/core": "^0.1.0-canary.1"
+    "@asod/core": "^0.1.0-canary.2"
   },
   "devDependencies": {
     "@commitlint/cli": "^18.2.0",

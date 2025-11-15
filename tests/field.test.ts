@@ -1,11 +1,11 @@
 import type ASOD from '../src/core';
-import { Field } from '../src/field';
+import { Field } from '../src/index';
 
 describe('operations', () => {
-  let add: ASOD.Operation.IBinaryOperation<number>;
-  let sub: ASOD.Operation.IBinaryOperation<number>;
-  let mul: ASOD.Operation.IBinaryOperation<number>;
-  let div: ASOD.Operation.IBinaryOperation<number>;
+  let add: ASOD.IFieldAddOperation<number>;
+  let mul: ASOD.IFieldMulOperation<number>;
+  let sub: ASOD.IFieldSubOperation<number>;
+  let div: ASOD.IFieldDivOperation<number>;
 
   let numbers: Field<number>;
 
@@ -15,14 +15,7 @@ describe('operations', () => {
     mul = jest.fn((a, b) => a * b);
     div = jest.fn((a, b) => a / b);
 
-    numbers = new Field<number>({
-      operations: {
-        add: { func: add, neutralValue: 0 },
-        sub: { func: sub, neutralValue: 0 },
-        mul: { func: mul, neutralValue: 1 },
-        div: { func: div, neutralValue: 1 },
-      },
-    });
+    numbers = new Field<number>({ operations: { add, sub, mul, div } });
   });
 
   it('should add a values', () => {

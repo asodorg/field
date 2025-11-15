@@ -21,12 +21,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@asod/core@npm:^0.1.0-canary.2":
+  version: 0.1.0-canary.2
+  resolution: "@asod/core@npm:0.1.0-canary.2"
+  checksum: 10c0/16ec861d03f0f1ebc9894552ee3e2819d0348af284a8c01f63f72bb43d9c5cb5c0c97d8b0f52eb3f71c70ca9e5e941d4654c272b352067a4fabc7eebce368791
+  languageName: node
+  linkType: hard
+
 "@asod/field@workspace:.":
   version: 0.0.0-use.local
   resolution: "@asod/field@workspace:."
   dependencies:
     "@asod/compare": "npm:^0.1.1-canary.5"
-    "@asod/core": "npm:^0.1.0-canary.1"
+    "@asod/core": "npm:^0.1.0-canary.2"
     "@commitlint/cli": "npm:^18.2.0"
     "@commitlint/config-conventional": "npm:^18.1.0"
     "@swc/cli": "npm:^0.5.2"
